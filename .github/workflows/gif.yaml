@@ -56,6 +56,19 @@ jobs:
           file_name: "demo"
           # The name of the file to commit
           save_path: "/build/"
+          # The browser to use
+          window_width: 800
+          window_height: 600
+
+          # the size of the gif
+          final_width: 800
+          final_height: 600
+
+          # The number of frames to capture
+          number_of_frames: 100
+
+          # Do not scroll the page
+          no_scoll: true
 
       # Push the output branch
       - name: Push the output branch

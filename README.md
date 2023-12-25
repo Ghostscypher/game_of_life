@@ -26,7 +26,8 @@ The simulation can be controlled using the following keys:
 
 ## Demo
 
-<iframe src="https://ghostscypher.github.io/game_of_life/src/index.html" title="Conway's Game Of Life" width="100%" height="500px"></iframe>
+<img src="https://raw.githubusercontent.com/ghostscypher/game_of_life/output/demo.gif" alt="Game of life output GIF" />
+
 
 ## References
 
