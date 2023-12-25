@@ -9,37 +9,36 @@ jobs:
         steps:
             # Wait for github pages to finish building
             - name: Wait for github pages to finish building
-            uses: lewagon/wait-on-check-action@v1.3.1
-            with:
-                github_token: ${{ secrets.GITHUB_TOKEN }}
-                check_name: GitHub Pages
+                uses: lewagon/wait-on-check-action@v1.3.1
+                with:
+                    github_token: ${{ secrets.GITHUB_TOKEN }}
+                    check_name: GitHub Pages
 
             # Generate gif
             - name: Website to file
-            uses: actions/checkout@v3
-            uses: PabloLec/website-to-gif@2.1.3
-            with:
-                # This repos github pages url
-                url: https://ghostscyper.github.io/${{ github.repository }}/src/index.html
-                file_name: demo.gif
+                uses: actions/checkout@v3
+                uses: PabloLec/website-to-gif@2.1.3
+                with:
+                    # This repos github pages url
+                    url: https://ghostscyper.github.io/${{ github.repository }}/src/index.html
+                    file_name: demo.gif
 
             # Commit the file to the output branch
             - name: Commit the file to the output branch
-            uses: EndBug/add-and-commit@v7
-            with:
-                # The name of the branch where the gif will be pushed
-                branch: output
-                # The name of the file to commit
-                message: Generate demo file
-                # The name of the file to commit
-                add: demo.gif
+                uses: EndBug/add-and-commit@v7
+                with:
+                    # The name of the branch where the gif will be pushed
+                    branch: output
+                    # The name of the file to commit
+                    message: Generate demo file
+                    # The name of the file to commit
+                    add: demo.gif
 
             # Push the output branch
             - name: Push the output branch
-            uses: ad-m/github-push-action@master
-            with:
-                # The name of the branch where the gif will be pushed
-                branch: output
-                # The name of the file to commit
-                github_token: ${{ secrets.GITHUB_TOKEN }}
-                
+                uses: ad-m/github-push-action@master
+                with:
+                    # The name of the branch where the gif will be pushed
+                    branch: output
+                    # The name of the file to commit
+                    github_token: ${{ secrets.GITHUB_TOKEN }}
