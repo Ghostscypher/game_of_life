@@ -1,7 +1,8 @@
 name: Deploy to GH pages and Generate demo.gif file
 
 on: 
-  push:
+  push: 
+    branches: [$default-branch]
   workflow_dispatch:
 
 permissions:
@@ -9,6 +10,10 @@ permissions:
   packages: write
   pull-requests: write
   statuses: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   generate_gif:
