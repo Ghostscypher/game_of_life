@@ -26,7 +26,7 @@ The simulation can be controlled using the following keys:
 
 ## Demo
 
-<iframe src="https://ghostscypher.github.io/game_of_life/src/index.html" title="Quadtree" width="100%" height="500px"></iframe>
+<iframe src="https://ghostscypher.github.io/game_of_life/src/index.html" title="Conway's Game Of Life" width="100%" height="500px"></iframe>
 
 ## References
 
