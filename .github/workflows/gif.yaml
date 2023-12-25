@@ -58,17 +58,20 @@ jobs:
           save_path: "/build/"
           # The browser to use
           window_width: 800
-          window_height: 600
+          window_height: 800
 
           # the size of the gif
           final_width: 800
-          final_height: 600
+          final_height: 800
 
           # The number of frames to capture
-          number_of_frames: 100
+          number_of_frames: 200
 
           # Do not scroll the page
           no_scoll: true
+
+          # The time between frames
+          time_between_frames: 10
 
       # Push the output branch
       - name: Push the output branch
