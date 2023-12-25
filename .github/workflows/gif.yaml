@@ -36,6 +36,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Create a build folder
+      - name: Create a build folder
+        run: |
+          mkdir build
       
       # Generate gif
       - name: Website to file
@@ -43,7 +48,9 @@ jobs:
         with:
           # This repos github pages url
           url: https://ghostscyper.github.io/${{ github.repository }}/src/index.html
-          file_name: "/build/demo.gif"
+          file_name: "/demo.gif"
+          # The name of the file to commit
+          save_path: "build/"
 
       # Commit the file to the output branch
       - name: Commit the file to the output branch
