@@ -48,7 +48,7 @@ jobs:
         with:
           # This repos github pages url
           url: https://ghostscyper.github.io/${{ github.repository }}/src/index.html
-          file_name: "/demo.gif"
+          file_name: "demo."
           # The name of the file to commit
           save_path: "build/"
 
