@@ -1,24 +1,38 @@
-name: Generate demo file
+name: Deploy to GH pages and Generate demo.gif file
 
-on: push
+on: 
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+  pull-requests: write
+  statuses: write
 
 jobs:
   generate_gif:
     runs-on: ubuntu-latest
-    steps:
-      # Wait for github pages to finish building
-      - name: Wait for github pages to finish building
-        uses: lewagon/wait-on-check-action@v1.3.1
-        with:
-          ref: ${{ github.ref }}
-          check-name: 'GitHub Pages'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
 
-      # Checkout the repository
-      - name: Checkout the repository
-        uses: actions/checkout@v2
-        
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      
       # Generate gif
       - name: Website to file
         uses: PabloLec/website-to-gif@2.1.3
