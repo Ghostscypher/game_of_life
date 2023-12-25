@@ -6,7 +6,6 @@ jobs:
     generate_gif:
         runs-on: ubuntu-latest
         steps:
-            # Wait for github pages to finish building
             - name: Wait for github pages to finish building
             uses: lewagon/wait-on-check-action@v1.3.1
             with:
@@ -20,7 +19,6 @@ jobs:
                 url: https://ghostscyper.github.io/${{ github.repository }}/src/index.html
                 file_name: demo.gif
 
-            # Commit the file to the output branch
             - name: Commit the file to the output branch
             uses: EndBug/add-and-commit@v7
             with:
@@ -28,7 +26,6 @@ jobs:
                 message: Generate demo file
                 add: demo.gif
 
-            # Push the output branch
             - name: Push the output branch
             uses: ad-m/github-push-action@master
             with:
